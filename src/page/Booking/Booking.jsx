@@ -27,11 +27,12 @@ const Booking = () => {
                                 </label>
                                 <input type="text" name='destination' placeholder="Enter your destination" className="input bg-slate-300 text-black text-base font-semibold" required />
                             </div>
-
-                            <div className="form-control mt-6">
+                            <Link to='/hotel'>
+                                <div className="form-control mt-6">
                                     <button className="btn btn-warning">Start Booking</button>
-                            </div>
-                            
+                                </div>
+                            </Link>
+
                         </form>
                     </div>
                 </div>

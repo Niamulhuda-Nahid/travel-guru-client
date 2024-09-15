@@ -6,6 +6,8 @@ import Login from "../page/Login/Login";
 import LoginLayout from "../layout/LoginLayout";
 import Register from "../page/Register/Register";
 import PrivateRoute from "./PrivateRoute";
+import HotelLayout from "../layout/HotelLayout";
+import Hotel from "../page/Hotel/Hotel";
 
 
 const router = createBrowserRouter([
@@ -16,11 +18,11 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <CardPlace></CardPlace>,
-                loader: ()=> fetch(`http://localhost:5000/place`)
+                loader: ()=> fetch(`https://travel-guru-server-murex-psi.vercel.app/place`)
             },
             {
                 path: 'booking',
-                element: <PrivateRoute><Booking></Booking></PrivateRoute>
+                element: <Booking></Booking>
             }
         ]
     },
@@ -42,6 +44,17 @@ const router = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            }
+        ]
+    },
+    {
+        path: '/hotel',
+        element: <HotelLayout></HotelLayout>,
+        children: [
+            {
+                path: '/hotel',
+                element: <PrivateRoute><Hotel></Hotel></PrivateRoute>,
+                loader: ()=> fetch(`https://travel-guru-server-murex-psi.vercel.app/hotel`)
             }
         ]
     }
